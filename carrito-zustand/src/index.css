@@ -1,0 +1,161 @@
+/* ===== VARIABLES DE COLOR Y MEDIDAS ===== */
+:root {
+  --fondo: #f5f5f4; /* Gris muy claro para el fondo de la página */
+  --tarjeta: #ffffff; /* Blanco para los paneles */
+  --texto: #1c1917; /* Casi negro para el texto principal */
+  --texto-suave: #78716c; /* Gris para textos secundarios */
+  --borde: #e7e5e4; /* Gris claro para bordes y separadores */
+  --acento: #0f766e; /* Verde azulado como color principal */
+  --acento-hover: #115e59; /* Tono más oscuro al pasar el mouse */
+  --radio: 12px; /* Redondeo de las esquinas */
+}
+
+/* ===== REINICIO BÁSICO ===== */
+* {
+  margin: 0; /* Quita márgenes por defecto del navegador */
+  padding: 0; /* Quita rellenos por defecto */
+  box-sizing: border-box; /* El ancho incluye padding y borde */
+}
+
+/* ===== CUERPO DE LA PÁGINA ===== */
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; /* Fuente del sistema */
+  background-color: var(--fondo); /* Fondo gris claro */
+  color: var(--texto); /* Color de texto principal */
+  line-height: 1.5; /* Espaciado cómodo entre líneas */
+}
+
+/* ===== CONTENEDOR GENERAL ===== */
+.app {
+  max-width: 960px; /* Ancho máximo para pantallas grandes */
+  margin: 0 auto; /* Centra el contenido horizontalmente */
+  padding: 2rem 1rem; /* Espacio alrededor del contenido */
+}
+
+/* ===== ENCABEZADO ===== */
+.encabezado {
+  display: flex; /* Pone título e insignia en una fila */
+  justify-content: space-between; /* Título a la izquierda, insignia a la derecha */
+  align-items: center; /* Centra verticalmente */
+  margin-bottom: 2rem; /* Separa el encabezado del contenido */
+}
+
+.encabezado h1 {
+  font-size: 1.75rem; /* Tamaño del título */
+  font-weight: 600; /* Grosor semi negrita */
+  letter-spacing: -0.02em; /* Letras ligeramente más juntas */
+}
+
+/* Insignia del contador del carrito */
+.insignia {
+  background-color: var(--tarjeta); /* Fondo blanco */
+  border: 1px solid var(--borde); /* Borde suave */
+  border-radius: 999px; /* Forma de píldora */
+  padding: 0.4rem 1rem; /* Espacio interno */
+  font-weight: 500; /* Texto un poco más grueso */
+}
+
+/* ===== DISTRIBUCIÓN EN COLUMNAS ===== */
+.contenido {
+  display: grid; /* Usamos CSS Grid */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  ); /* 2 columnas o 1 en móvil */
+  gap: 1.5rem; /* Espacio entre paneles */
+  align-items: start; /* Cada panel con su propia altura */
+}
+
+/* ===== PANELES (TARJETAS) ===== */
+.panel {
+  background-color: var(--tarjeta); /* Fondo blanco */
+  border: 1px solid var(--borde); /* Borde suave */
+  border-radius: var(--radio); /* Esquinas redondeadas */
+  padding: 1.5rem; /* Espacio interno */
+}
+
+.panel h2 {
+  font-size: 1.1rem; /* Título del panel discreto */
+  font-weight: 600; /* Semi negrita */
+  margin-bottom: 1rem; /* Separación con la lista */
+}
+
+/* ===== FILAS DE PRODUCTOS ===== */
+.fila {
+  display: flex; /* Texto y botón en una fila */
+  justify-content: space-between; /* Texto a la izquierda, botón a la derecha */
+  align-items: center; /* Centra verticalmente */
+  padding: 0.75rem 0; /* Espacio arriba y abajo */
+  border-bottom: 1px solid var(--borde); /* Línea separadora */
+}
+
+.fila:last-of-type {
+  border-bottom: none; /* La última fila no lleva línea */
+}
+
+.fila-nombre {
+  font-weight: 500; /* Nombre del producto destacado */
+}
+
+.fila-detalle {
+  font-size: 0.875rem; /* Texto más pequeño */
+  color: var(--texto-suave); /* Color gris */
+}
+
+/* ===== BOTONES ===== */
+.btn {
+  font: inherit; /* Usa la misma fuente de la página */
+  font-size: 0.875rem; /* Tamaño de texto del botón */
+  font-weight: 500; /* Texto semi grueso */
+  padding: 0.5rem 1rem; /* Espacio interno */
+  border-radius: 8px; /* Esquinas redondeadas */
+  cursor: pointer; /* Manito al pasar el mouse */
+  transition:
+    background-color 0.2s,
+    border-color 0.2s; /* Cambio de color suave */
+}
+
+/* Botón principal: relleno con el color de acento */
+.btn-primario {
+  background-color: var(--acento); /* Fondo verde azulado */
+  color: #ffffff; /* Texto blanco */
+  border: 1px solid var(--acento); /* Borde del mismo color */
+}
+
+.btn-primario:hover {
+  background-color: var(--acento-hover); /* Más oscuro al pasar el mouse */
+}
+
+/* Botón secundario: solo borde, fondo transparente */
+.btn-secundario {
+  background-color: transparent; /* Sin relleno */
+  color: var(--texto); /* Texto oscuro */
+  border: 1px solid var(--borde); /* Borde gris */
+}
+
+.btn-secundario:hover {
+  border-color: var(--texto-suave); /* Borde más visible al pasar el mouse */
+}
+
+/* Botón que ocupa todo el ancho del panel */
+.btn-bloque {
+  width: 100%; /* Ancho completo */
+  margin-top: 1rem; /* Separación con el total */
+}
+
+/* ===== TOTAL DEL CARRITO ===== */
+.total {
+  display: flex; /* Etiqueta y valor en una fila */
+  justify-content: space-between; /* Extremos opuestos */
+  margin-top: 1rem; /* Separación con la lista */
+  padding-top: 1rem; /* Espacio interno superior */
+  border-top: 2px solid var(--texto); /* Línea fuerte que marca el total */
+  font-size: 1.1rem; /* Texto un poco más grande */
+}
+
+/* ===== MENSAJE DE CARRITO VACÍO ===== */
+.vacio {
+  color: var(--texto-suave); /* Texto gris */
+  text-align: center; /* Centrado */
+  padding: 2rem 0; /* Espacio arriba y abajo */
+}
